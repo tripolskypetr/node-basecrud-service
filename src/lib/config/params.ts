@@ -1,0 +1,5 @@
+export const CC_APPWRITE_DATABASE_ID = process.env.CC_APPWRITE_DATABASE_ID || "66f169f0000b1983a195";
+export const CC_APPWRITE_ENDPOINT_URL =process.env.CC_APPWRITE_ENDPOINT_URL || "http://127.0.0.1:8080/v1";
+export const CC_APPWRITE_PROJECT_ID = process.env.CC_APPWRITE_PROJECT_ID || "64b53d0c41fcf5093b12";
+export const CC_APPWRITE_STORAGE_BUCKET_ID = process.env.CC_APPWRITE_STORAGE_BUCKET_ID || "64c4f91c7f9a4458c4bb";
+export const CC_APPWRITE_API_KEY = process.env.CC_APPWRITE_API_KEY || "";
