@@ -8,37 +8,37 @@ const router = Router({
   params: true
 });
 
-router.get("/api/v1/todo1", async (req, res) => {
+router.get("/api/v1/todo3", async (req, res) => {
   return await micro.send(
     res,
     200,
-    await ioc.todo1DbService.findAll(),
+    await ioc.todo3DbService.findAll(),
   );
 });
 
-router.get("/api/v1/todo1/:id", async (req, res) => {
+router.get("/api/v1/todo3/:id", async (req, res) => {
   return await micro.send(
     res,
     200,
-    await ioc.todo1DbService.findById(req.params.id)
+    await ioc.todo3DbService.findById(req.params.id)
   );
 });
 
-router.post("/api/v1/todo1", async (req, res) => {
+router.post("/api/v1/todo3", async (req, res) => {
   const { data } = <any>await micro.json(req);
   return await micro.send(
     res,
     200,
-    await ioc.todo1DbService.create(data)
+    await ioc.todo3DbService.create(data)
   );
 });
 
-router.put("/api/v1/todo1/:id", async (req, res) => {
+router.put("/api/v1/todo3/:id", async (req, res) => {
   const { data } = <any>await micro.json(req);
   return await micro.send(
     res,
     200,
-    await ioc.todo1DbService.update(req.params.id, data)
+    await ioc.todo3DbService.update(req.params.id, data)
   );
 });
 

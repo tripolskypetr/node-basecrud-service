@@ -5,11 +5,31 @@ import finalhandler from "finalhandler";
 import serveHandler from "serve-handler";
 
 import todo1 from './routes/todo1';
+import todo2 from './routes/todo2';
+import todo3 from './routes/todo3';
 
-const router = Router();
+const router = Router({
+  params: true
+});
 
-router.get("/api/v1/todo1", (req, res) => {
+router.get("/api/v1/todo1/*", (req, res) => {
   return todo1(
+    req,
+    res,
+    finalhandler(req, res),
+  );
+});
+
+router.get("/api/v1/todo2/*", (req, res) => {
+  return todo2(
+    req,
+    res,
+    finalhandler(req, res),
+  );
+});
+
+router.get("/api/v1/todo3/*", (req, res) => {
+  return todo3(
     req,
     res,
     finalhandler(req, res),
