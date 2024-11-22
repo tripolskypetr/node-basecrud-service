@@ -1,12 +1,16 @@
-# node-basecrud-service
+import { resolveDocuments, IRowData } from 'functools-kit';
+import { factory } from 'di-factory';
 
-> The generic repository pattern implementation for NodeJS, aka `BaseCRUD`
+import { CC_APPWRITE_DATABASE_ID } from '../config/params';
 
-## Code sample
+import AppwriteService from '../services/base/AppwriteService';
+import LoggerService from '../services/base/LoggerService';
 
-**BaseCrud.ts**
+import { inject } from '../core/di';
 
-```typescript
+import listDocuments from '../utils/listDocuments';
+
+import TYPES from '../config/types';
 
 export const BaseCrud = factory(
   class {
@@ -59,34 +63,7 @@ export const BaseCrud = factory(
     };
   }
 );
-```
 
-**TodoDbService.ts**
+export type TBaseCrud = InstanceType<ReturnType<typeof BaseCrud>>;
 
-```typescript
-export class TodoDbService extends BaseCrud("todoDbService", CC_APPWRITE_TODO_COLLECTION_ID) {
-
-    public findAll = async () => {
-        return <ITodoRow[]> await this.findAll();
-    };
-
-    public findById = async (id: string) => {
-        return <ITodoRow> await super.findById(id);
-    };
-
-    public create = async (dto: ITodoDto) => {
-        return <ITodoRow> await super.create(dto);
-    };
-
-    public update = async (id: string, dto: ITodoDto) => {
-        return <ITodoRow> await super.update(id, dto);
-    };
-
-    public remove = async (id: string) => {
-        return <ITodoRow> await super.remove(id);
-    };
-};
-
-export default TodoDbService;
-
-```
+export default BaseCrud;

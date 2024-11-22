@@ -4,9 +4,10 @@ import TYPES from './types';
 
 import LoggerService from '../services/base/LoggerService';
 import ErrorService from '../services/base/ErrorService';
-import OlxClientSesssionService from '../services/client/OlxClientSesssionService';
 import AppwriteService from '../services/base/AppwriteService';
-import OlxPublishService from '../services/function/OlxPublishService';
+import Todo1DbService from '../services/db/Todo1DbService';
+import Todo2DbService from '../services/db/Todo2DbService';
+import Todo3DbService from '../services/db/Todo3DbService';
 
 {
     provide(TYPES.loggerService, () => new LoggerService());
@@ -15,9 +16,7 @@ import OlxPublishService from '../services/function/OlxPublishService';
 }
 
 {
-    provide(TYPES.olxClientSesssionService, () => new OlxClientSesssionService());
-}
-
-{
-    provide(TYPES.olxPublishService, () => new OlxPublishService());
+    provide(TYPES.todo1DbService, () => new Todo1DbService());
+    provide(TYPES.todo2DbService, () => new Todo2DbService());
+    provide(TYPES.todo3DbService, () => new Todo3DbService());
 }

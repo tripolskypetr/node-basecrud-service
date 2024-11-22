@@ -2,18 +2,23 @@ import micro from "micro";
 import http from "http";
 import Router from "router";
 import finalhandler from "finalhandler";
+import serveHandler from "serve-handler";
 
-import olx from './routes/olx';
+import todo1 from './routes/todo1';
 
 const router = Router();
 
-router.get("/*", (req, res) => {
-  return olx(
+router.get("/api/v1/todo1", (req, res) => {
+  return todo1(
     req,
     res,
     finalhandler(req, res),
   );
 });
+
+router.get("/*", (req, res) => serveHandler(req, res, {
+  public: "./public",
+}));
 
 const server = new http.Server(
   micro.serve(async (req, res) => {

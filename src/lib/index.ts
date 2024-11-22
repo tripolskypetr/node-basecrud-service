@@ -3,9 +3,10 @@ import "./config/provide";
 import { inject, init } from "./core/di";
 import LoggerService from "./services/base/LoggerService";
 import ErrorService from "./services/base/ErrorService";
-import OlxClientSesssionService, { TOlxClientSesssionService } from './services/client/OlxClientSesssionService';
 import AppwriteService from "./services/base/AppwriteService";
-import OlxPublishService from "./services/function/OlxPublishService";
+import Todo1DbService from "./services/db/Todo1DbService";
+import Todo2DbService from "./services/db/Todo2DbService";
+import Todo3DbService from "./services/db/Todo3DbService";
 
 const baseServices = {
     loggerService: inject<LoggerService>(TYPES.loggerService),
@@ -13,22 +14,17 @@ const baseServices = {
     appwriteService: inject<AppwriteService>(TYPES.appwriteService),
 };
 
-const clientServices = {
-    olxClientSesssionService: inject<TOlxClientSesssionService>(TYPES.olxClientSesssionService),
-};
-
-const functionServices = {
-    olxPublishService: inject<OlxPublishService>(TYPES.olxPublishService),
+const dbServices = {
+    todo1DbService: inject<Todo1DbService>(TYPES.todo1DbService),
+    todo2DbService: inject<Todo2DbService>(TYPES.todo2DbService),
+    todo3DbService: inject<Todo3DbService>(TYPES.todo3DbService),
 };
 
 init();
 
 export const ioc = {
     ...baseServices,
-    ...clientServices,
-    ...functionServices,
+    ...dbServices,
 };
 
 globalThis.ioc = ioc;
-
-export { OlxClientSesssionService };
