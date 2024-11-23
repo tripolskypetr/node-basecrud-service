@@ -1,4 +1,4 @@
-import { resolveDocuments, IRowData } from 'functools-kit';
+import { resolveDocuments } from 'functools-kit';
 import { factory } from 'di-factory';
 
 import { CC_APPWRITE_DATABASE_ID } from '../config/params';
