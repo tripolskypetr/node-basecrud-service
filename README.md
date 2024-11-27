@@ -67,7 +67,7 @@ export const BaseCrud = factory(
 export class TodoDbService extends BaseCrud("todoDbService", CC_APPWRITE_TODO_COLLECTION_ID) {
 
     public findAll = async () => {
-        return <ITodoRow[]> await this.findAll();
+        return <ITodoRow[]> await super.findAll();
     };
 
     public findById = async (id: string) => {
