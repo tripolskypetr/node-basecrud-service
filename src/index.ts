@@ -12,7 +12,7 @@ const router = Router({
   params: true
 });
 
-router.get("/api/v1/todo1/*", (req, res) => {
+router.all("/api/v1/todo1/*", (req, res) => {
   return todo1(
     req,
     res,
@@ -20,7 +20,7 @@ router.get("/api/v1/todo1/*", (req, res) => {
   );
 });
 
-router.get("/api/v1/todo2/*", (req, res) => {
+router.all("/api/v1/todo2/*", (req, res) => {
   return todo2(
     req,
     res,
@@ -28,7 +28,7 @@ router.get("/api/v1/todo2/*", (req, res) => {
   );
 });
 
-router.get("/api/v1/todo3/*", (req, res) => {
+router.all("/api/v1/todo3/*", (req, res) => {
   return todo3(
     req,
     res,
